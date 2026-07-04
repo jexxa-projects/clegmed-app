@@ -1,0 +1,78 @@
+{
+	"abstract" : true,
+	"backtrace" : 1,
+	"backtraceGraph" : 
+	{
+		"commands" : 
+		[
+			"add_library",
+			"target_link_libraries"
+		],
+		"files" : 
+		[
+			"cmake-build-debug/_deps/clegmed-src/CMakeLists.txt"
+		],
+		"nodes" : 
+		[
+			{
+				"file" : 0
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 23,
+				"parent" : 0
+			},
+			{
+				"command" : 1,
+				"file" : 0,
+				"line" : 26,
+				"parent" : 0
+			}
+		]
+	},
+	"codemodelVersion" : 
+	{
+		"major" : 2,
+		"minor" : 9
+	},
+	"id" : "clegmed_core::@3fa3e3e672eebc504574",
+	"interfaceCompileDependencies" : 
+	[
+		{
+			"backtrace" : 2,
+			"id" : "clegmed_utils::@3fa3e3e672eebc504574"
+		},
+		{
+			"backtrace" : 2,
+			"id" : "clegmed_core_base::@3fa3e3e672eebc504574"
+		},
+		{
+			"backtrace" : 2,
+			"id" : "clegmed_plugins_generic::@3fa3e3e672eebc504574"
+		}
+	],
+	"interfaceLinkLibraries" : 
+	[
+		{
+			"backtrace" : 2,
+			"id" : "clegmed_utils::@3fa3e3e672eebc504574"
+		},
+		{
+			"backtrace" : 2,
+			"id" : "clegmed_core_base::@3fa3e3e672eebc504574"
+		},
+		{
+			"backtrace" : 2,
+			"id" : "clegmed_plugins_generic::@3fa3e3e672eebc504574"
+		}
+	],
+	"name" : "clegmed_core",
+	"paths" : 
+	{
+		"build" : "_deps/clegmed-build",
+		"source" : "cmake-build-debug/_deps/clegmed-src"
+	},
+	"sources" : [],
+	"type" : "INTERFACE_LIBRARY"
+}

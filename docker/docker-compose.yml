@@ -1,0 +1,10 @@
+# docker-compose.yml
+version: "3.8"
+
+services:
+  # Dynamischer Service-Name basierend auf dem Projektnamen
+    clegmed-app:
+    # Zusammengesetzter Image-Pfad aus Registry, Autor und Projektname
+    image: ghcr.io/jexxa-projects/clegmed-app:latest
+    # Optional: Container-Name festlegen
+    container_name: clegmed-app

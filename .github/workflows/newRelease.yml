@@ -1,0 +1,64 @@
+name: Multi-Arch Build
+
+on:
+  push:
+    tags: [ "v*.*.*" ]
+  workflow_dispatch:
+
+jobs:
+  build-and-push:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      # Docker Metadaten mit Copier-Variablen für das Image
+      - name: Docker metadata
+        id: meta
+        uses: docker/metadata-action@v5
+        with:
+          # Hier setzen wir deine Copier-Variablen ein:
+          images: ghcr.io/jexxa-projects/clegmed-app
+          
+          tags: |
+            type=semver,pattern={{version}}
+            type=semver,pattern={{major}}.{{minor}}
+            type=semver,pattern={{major}}
+            type=raw,value=latest,enable={{is_default_branch}}
+          
+
+      - name: Set up QEMU
+        uses: docker/setup-qemu-action@v3
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
+      - name: Login to GHCR
+        uses: docker/login-action@v3
+        with:
+          registry: ghcr.io
+          # Schutz der GitHub-Variablen via String-Escaping
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Build and Push
+        uses: docker/build-push-action@v5
+        with:
+          context: .
+          # Pfad zum Dockerfile im Template prüfen (oft root oder ./Dockerfile)
+          file: ./Dockerfile
+          platforms: linux/amd64,linux/arm64
+          push: true
+          
+          tags: ${{ steps.meta.outputs.tags }}
+          build-args: |
+            APP_VERSION=${{ steps.meta.outputs.version }}
+          
+          provenance: false
+          sbom: false
