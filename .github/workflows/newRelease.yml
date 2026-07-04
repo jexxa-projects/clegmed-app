@@ -51,8 +51,7 @@ jobs:
         uses: docker/build-push-action@v5
         with:
           context: .
-          # Pfad zum Dockerfile im Template prüfen (oft root oder ./Dockerfile)
-          file: ./Dockerfile
+          file: ./docker/Dockerfile
           platforms: linux/amd64,linux/arm64
           push: true
           
