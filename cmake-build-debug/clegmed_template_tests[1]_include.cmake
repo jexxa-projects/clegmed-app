@@ -1,5 +1,0 @@
-if(EXISTS "/Users/michael/Entwicklung/clion/clegmed-app/cmake-build-debug/clegmed_template_tests[1]_tests.cmake")
-  include("/Users/michael/Entwicklung/clion/clegmed-app/cmake-build-debug/clegmed_template_tests[1]_tests.cmake")
-else()
-  add_test(clegmed_template_tests_NOT_BUILT clegmed_template_tests_NOT_BUILT)
-endif()
