@@ -26,6 +26,11 @@ This template can be used to start your own JLegMed application
     # 3. Compile the shared library and the test runner
     cmake --build .
     ```
+## Update project from template
+In case you manage your project in CVS, you can sync your project with the clegmed-template using command: 
+```bash
+copier update
+```
 
 ## Start Developing your Project
 
